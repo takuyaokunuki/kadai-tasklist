@@ -19,11 +19,27 @@ class TasksController < ApplicationController
     flash[:success] = 'メッセージを削除しました。'
     redirect_back(fallback_location: root_path)
   end
+  
+  def edit
+    @task = Task.find(params[:id])
+  end
+  
+  def update
+    @task = Task.find(params[:id])
 
+    if @task.update(task_params)
+      flash[:success] = 'Task は正常に更新されました'
+      redirect_to root_url
+    else
+      flash.now[:danger] = 'Task は更新されませんでした'
+      render :edit
+    end
+  end
+  
   private
 
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :status)
   end
 
   def correct_user

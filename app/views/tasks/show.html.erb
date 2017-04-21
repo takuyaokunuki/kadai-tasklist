@@ -1,8 +1,5 @@
 <h1>id = <%= @task.id %> のタスク詳細ページ</h1>
 
-<%= @task.id %>
- のメッセージ詳細ページ</h1>
-
 <table class="table table-bordered">
   <tr>
     <th>id</th>
@@ -11,15 +8,15 @@
 </td>
   </tr>
   <tr>
-    <th>タイトル</th>
+    <th>タスク</th>
     <td>
-<%= @task.status %>
+<%= @task.content %>
 </td>
   </tr>
   <tr>
-    <th>メッセージ</th>
+    <th>ステータス</th>
     <td>
-<%= @task.content %>
+<%= @task.status %>
 </td>
   </tr>
 </table>
